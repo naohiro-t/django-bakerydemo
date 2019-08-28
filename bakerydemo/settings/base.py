@@ -29,8 +29,8 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
+    'scout_apm.django',
     'bakerydemo.base',
     'bakerydemo.blog',
     'bakerydemo.breads',
@@ -177,3 +177,44 @@ WAGTAILSEARCH_BACKENDS = {
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "bakerydemo"
+
+# Scout settings
+SCOUT_MONITOR = True
+SCOUT_NAME    = "wagtail_fail"
+SCOUT_KEY = 'key'
+SCOUT_LOG_LEVEL = 'debug'
+# SCOUT_SOCKET_PATH = '/tmp/core-agent.sock'
+# SCOUT_CORE_AGENT_TRIPLE = 'x86_64-unknown-linux-musl'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'stdout': {
+            'format': '%(asctime)s %(levelname)s %(message)s',
+            'datefmt': '%Y-%m-%dT%H:%M:%S%z',
+        },
+    },
+    'handlers': {
+        'stdout': {
+            'class': 'logging.StreamHandler',
+            'formatter': 'stdout',
+        },
+        'scout_apm': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'scout_apm_debug.log',
+        },
+    },
+    'root': {
+        'handlers': ['stdout'],
+        'level': os.environ.get('LOG_LEVEL', 'DEBUG'),
+    },
+    'loggers': {
+        'scout_apm': {
+            'handlers': ['scout_apm'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
