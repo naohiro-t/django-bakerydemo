@@ -107,8 +107,10 @@ WSGI_APPLICATION = 'bakerydemo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'bakerydemodb')
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'bakerydemo',
+        'HOST': 'localhost',
+        'PORT': ''
     }
 }
 
@@ -180,11 +182,9 @@ WAGTAIL_SITE_NAME = "bakerydemo"
 
 # Scout settings
 SCOUT_MONITOR = True
-SCOUT_NAME    = "wagtail_fail"
+SCOUT_NAME    = "wagtail"
 SCOUT_KEY = 'key'
 SCOUT_LOG_LEVEL = 'debug'
-# SCOUT_SOCKET_PATH = '/tmp/core-agent.sock'
-# SCOUT_CORE_AGENT_TRIPLE = 'x86_64-unknown-linux-musl'
 
 LOGGING = {
     'version': 1,
