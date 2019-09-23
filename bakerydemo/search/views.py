@@ -9,8 +9,13 @@ from bakerydemo.blog.models import BlogPage
 from bakerydemo.breads.models import BreadPage
 from bakerydemo.locations.models import LocationPage
 
+# To test GH integration
+from bakerydemo.misc.sleep import sleep
 
 def search(request):
+    # To test GH integration
+    sleep()
+
     # Search
     search_query = request.GET.get('q', None)
     if search_query:

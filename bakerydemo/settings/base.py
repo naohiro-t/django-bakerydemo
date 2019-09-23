@@ -181,10 +181,10 @@ WAGTAILSEARCH_BACKENDS = {
 WAGTAIL_SITE_NAME = "bakerydemo"
 
 # Scout settings
-SCOUT_MONITOR = True
-SCOUT_NAME    = "wagtail"
-SCOUT_KEY = 'key'
-SCOUT_LOG_LEVEL = 'debug'
+# SCOUT_MONITOR = True
+# SCOUT_NAME    = "wagtail"
+# SCOUT_KEY = 'key'
+# SCOUT_LOG_LEVEL = 'debug'
 
 LOGGING = {
     'version': 1,
