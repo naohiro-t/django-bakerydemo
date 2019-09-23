@@ -2,4 +2,4 @@ from django.db import connection
 
 def sleep():
     with connection.cursor() as cursor:
-        cursor.execute("SELECT pg_sleep(1);")
+        cursor.execute("SELECT pg_sleep(3);")
