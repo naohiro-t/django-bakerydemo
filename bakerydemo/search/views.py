@@ -10,7 +10,7 @@ from bakerydemo.breads.models import BreadPage
 from bakerydemo.locations.models import LocationPage
 
 # To test GH integration
-from bakerydemo.misc.sub_misc.sleep import sleep
+from bakerydemo.misc_2.sleep import sleep
 
 def search(request):
     # To test GH integration
